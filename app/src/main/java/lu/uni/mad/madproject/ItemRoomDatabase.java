@@ -15,7 +15,7 @@ import android.util.Log;
  * with it happen through the ItemViewModel.
  */
 
-@Database(entities = {Item.class}, version = 1, exportSchema = false)
+@Database(entities = {Item.class}, version = 2, exportSchema = false)
 public abstract class ItemRoomDatabase extends RoomDatabase {
 
     private static final String LOG_TAG = ItemRoomDatabase.class.getSimpleName();
@@ -74,7 +74,7 @@ public abstract class ItemRoomDatabase extends RoomDatabase {
             if (mDao.getAnyItem().length < 1) {
                 for (int i = 0; i <= items.length - 1; i++) {
                     Log.d(LOG_TAG, "No items into the DB, populate it");
-                    Item item = new Item(items[i]);
+                    Item item = new Item(items[i], "test " + items[i]);
                     mDao.insert(item);
                 }
             }

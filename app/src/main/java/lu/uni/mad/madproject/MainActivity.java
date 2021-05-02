@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
     public static final int UPDATE_ITEM_ACTIVITY_REQUEST_CODE = 2;
 
     public static final String EXTRA_DATA_UPDATE_ITEM= "extra_item_to_be_updated";
+    public static final String EXTRA_DATA_UPDATE_ITEM_DESC= "extra_item_desc_to_be_updated";
     public static final String EXTRA_DATA_ID = "extra_data_id";
 
     private ItemViewModel mItemViewModel;
@@ -182,16 +183,17 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == NEW_ITEM_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            Item item = new Item(data.getStringExtra(NewItemActivity.EXTRA_REPLY));
+            Item item = new Item(data.getStringExtra(NewItemActivity.EXTRA_REPLY), data.getStringExtra(NewItemActivity.EXTRA_REPLY_DESC));
             // Save the data.
             mItemViewModel.insert(item);
         } else if (requestCode == UPDATE_ITEM_ACTIVITY_REQUEST_CODE
                 && resultCode == RESULT_OK) {
             String item_data = data.getStringExtra(NewItemActivity.EXTRA_REPLY);
+            String item_description = data.getStringExtra(NewItemActivity.EXTRA_REPLY_DESC);
             int id = data.getIntExtra(NewItemActivity.EXTRA_REPLY_ID, -1);
 
             if (id != -1) {
-                mItemViewModel.update(new Item(id, item_data));
+                mItemViewModel.update(new Item(id, item_data, item_description));
             } else {
                 Toast.makeText(this, R.string.unable_to_update,
                         Toast.LENGTH_LONG).show();
@@ -205,6 +207,7 @@ public class MainActivity extends AppCompatActivity {
     public void launchUpdateItemActivity( Item item) {
         Intent intent = new Intent(this, NewItemActivity.class);
         intent.putExtra(EXTRA_DATA_UPDATE_ITEM, item.getItem());
+        intent.putExtra(EXTRA_DATA_UPDATE_ITEM_DESC, item.getDescription());
         intent.putExtra(EXTRA_DATA_ID, item.getId());
         startActivityForResult(intent, UPDATE_ITEM_ACTIVITY_REQUEST_CODE);
     }

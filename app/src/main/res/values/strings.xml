@@ -23,6 +23,10 @@ limitations under the License. -->
     <string name="clear_data_toast_text">Clear the data now!</string>
     <string name="no_item">No item</string>
     <string name="unable_to_update">Unable to update the item</string>
+    <string name="item_name">Item name</string>
+    <string name="item_description">Item description</string>
+    <string name="add_an_item_description">Add an item description</string>
+    <string name="item_quantity">Item quantity</string>
 
 
 </resources>

@@ -12,6 +12,7 @@ import com.android.example.roomwordssample.R;
 
 import static lu.uni.mad.madproject.MainActivity.EXTRA_DATA_ID;
 import static lu.uni.mad.madproject.MainActivity.EXTRA_DATA_UPDATE_ITEM;
+import static lu.uni.mad.madproject.MainActivity.EXTRA_DATA_UPDATE_ITEM_DESC;
 
 /**
  * This class displays a screen where the user enters a new item.
@@ -23,9 +24,11 @@ import static lu.uni.mad.madproject.MainActivity.EXTRA_DATA_UPDATE_ITEM;
 public class NewItemActivity extends AppCompatActivity {
 
     public static final String EXTRA_REPLY = "lu.uni.mad.madproject.REPLY";
+    public static final String EXTRA_REPLY_DESC = "lu.uni.mad.madproject.REPLY_DESC";
     public static final String EXTRA_REPLY_ID = "lu.uni.mad.madproject.REPLY_ID";
 
     private EditText mEditItemView;
+    private EditText mEditItemDescView;
 
     /**
      * Creation of the NewItemActivity used in two cases
@@ -38,6 +41,7 @@ public class NewItemActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_item);
 
         mEditItemView = findViewById(R.id.edit_item);
+        mEditItemDescView = findViewById(R.id.edit_description);
         int id = -1 ;
 
         final Bundle extras = getIntent().getExtras();
@@ -45,10 +49,15 @@ public class NewItemActivity extends AppCompatActivity {
         // If we are passed content, fill it in for the user to edit.
         if (extras != null) {
             String item = extras.getString(EXTRA_DATA_UPDATE_ITEM, "");
+            String description = extras.getString(EXTRA_DATA_UPDATE_ITEM_DESC, "");
             if (!item.isEmpty()) {
                 mEditItemView.setText(item);
                 mEditItemView.setSelection(item.length());
                 mEditItemView.requestFocus();
+
+                mEditItemDescView.setText(description);
+                mEditItemDescView.setSelection(description.length());
+                mEditItemDescView.requestFocus();
             }
         } // Otherwise, start with empty fields.
 
@@ -66,8 +75,10 @@ public class NewItemActivity extends AppCompatActivity {
                 } else {
                     // Get the new item that the user entered.
                     String item = mEditItemView.getText().toString();
+                    String description = mEditItemDescView.getText().toString();
                     // Put the new item in the extras for the reply Intent.
                     replyIntent.putExtra(EXTRA_REPLY, item);
+                    replyIntent.putExtra(EXTRA_REPLY_DESC, description);
                     if (extras != null && extras.containsKey(EXTRA_DATA_ID)) {
                         int id = extras.getInt(EXTRA_DATA_ID, -1);
                         if (id != -1) {

@@ -19,13 +19,59 @@ limitations under the License. -->
     android:layout_height="match_parent"
     android:background="@color/colorScreenBackground"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:padding="30dp">
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Item"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/item_name_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:text="@string/item_name"
+        android:textStyle="bold|italic" />
 
     <EditText
         android:id="@+id/edit_item"
         style="@style/text_view_style"
         android:hint="@string/hint_item"
-        android:inputType="textAutoComplete" />
+        android:inputType="textAutoComplete"
+        />
+
+    <TextView
+        android:id="@+id/item_description_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_description"
+        android:paddingTop="10dp"
+        android:textStyle="bold|italic" />
+
+    <EditText
+        android:id="@+id/edit_description"
+        style="@style/text_view_style"
+        android:hint="@string/add_an_item_description"
+        android:inputType="textMultiLine"
+        android:lines="8"
+        android:minLines="6"
+        android:gravity="top|left"
+        android:maxLines="10"
+        android:scrollbars="vertical"
+        />
+
+    <TextView
+        android:id="@+id/item_quantity_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_quantity"
+        android:paddingTop="10dp"
+        android:textStyle="bold|italic" />
 
     <Button
         android:id="@+id/button_save"

@@ -21,8 +21,12 @@ public class Item {
     @ColumnInfo(name = "item")
     private String mItem;
 
-    public Item(@NonNull String item) {
+    @ColumnInfo(name = "description")
+    private String mDescription;
+
+    public Item(@NonNull String item, String description) {
         this.mItem = item;
+        this.mDescription = description;
     }
 
     /*
@@ -31,9 +35,10 @@ public class Item {
      */
 
     @Ignore
-    public Item(int id, @NonNull String item) {
+    public Item(int id, @NonNull String item, String description) {
         this.id = id;
         this.mItem = item;
+        this.mDescription = description;
     }
 
     public String getItem() {
@@ -44,6 +49,14 @@ public class Item {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getDescription() {
+        return mDescription;
+    }
+
+    public void setDescription(String mDescription) {
+        this.mDescription = mDescription;
     }
 
 }
