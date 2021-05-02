@@ -12,7 +12,7 @@ import com.android.example.roomwordssample.R;
 import java.util.List;
 
 /**
- * Adapter for the RecyclerView that displays a list of words.
+ * Adapter for the RecyclerView that displays a list of items.
  */
 
 public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemViewHolder> {
@@ -38,7 +38,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemVi
             holder.itemItemView.setText(current.getItem());
         } else {
             // Covers the case of data not being ready yet.
-            holder.itemItemView.setText(R.string.no_word);
+            holder.itemItemView.setText(R.string.no_item);
         }
     }
 

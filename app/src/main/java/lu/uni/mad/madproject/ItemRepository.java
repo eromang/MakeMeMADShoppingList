@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * This class holds the implementation code for the methods that interact with the database.
  * Using a repository allows us to group the implementation methods together,
- * and allows the WordViewModel to be a clean interface between the rest of the app
+ * and allows the ItemViewModel to be a clean interface between the rest of the app
  * and the database.
  *
  * For insert, update and delete, and longer-running queries,
@@ -47,7 +47,7 @@ public class ItemRepository {
     }
 
     // Must run off main thread
-    public void deleteWord(Item item) {
+    public void deleteItem(Item item) {
         new ItemRepository.deleteItemAsyncTask(mItemDao).execute(item);
     }
 

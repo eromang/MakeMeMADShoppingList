@@ -7,7 +7,7 @@ import android.arch.lifecycle.LiveData;
 import java.util.List;
 
 /**
- * The WordViewModel provides the interface between the UI and the data layer of the app,
+ * The ItemViewModel provides the interface between the UI and the data layer of the app,
  * represented by the Repository
  */
 
@@ -36,7 +36,7 @@ public class ItemViewModel extends AndroidViewModel {
     }
 
     public void deleteItem(Item item) {
-        mRepository.deleteWord(item);
+        mRepository.deleteItem(item);
     }
 
     public void update(Item item) {

@@ -7,7 +7,7 @@ import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
 /**
- * Entity class that represents a word in the database
+ * Entity class that represents a item in the database
  * https://developer.android.com/codelabs/android-training-livedata-viewmodel?index=..%2F..%2Fandroid-training#0
  */
 
