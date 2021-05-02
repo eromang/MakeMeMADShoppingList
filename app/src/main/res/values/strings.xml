@@ -15,7 +15,7 @@ limitations under the License. -->
 <resources>
     <string name="app_name">Make Me MAD Shopping List</string>
 
-    <string name="hint_item">Itme…</string>
+    <string name="hint_item">Add an item</string>
     <string name="button_save">Save</string>
     <string name="empty_not_saved">Item not saved because it is empty.</string>
     <string name="clear_all_data">Clear all data</string>

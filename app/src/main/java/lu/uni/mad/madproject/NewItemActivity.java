@@ -27,6 +27,11 @@ public class NewItemActivity extends AppCompatActivity {
 
     private EditText mEditItemView;
 
+    /**
+     * Creation of the NewItemActivity used in two cases
+     * First case, to create an item
+     * Second case, to update an item
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

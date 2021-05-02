@@ -7,6 +7,7 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 /**
  * ItemRoomDatabase. Includes code to create the database.
@@ -17,6 +18,8 @@ import android.support.annotation.NonNull;
 @Database(entities = {Item.class}, version = 1, exportSchema = false)
 public abstract class ItemRoomDatabase extends RoomDatabase {
 
+    private static final String LOG_TAG = ItemRoomDatabase.class.getSimpleName();
+
     public abstract ItemDao ItemDao();
 
     private static ItemRoomDatabase INSTANCE;
@@ -26,6 +29,7 @@ public abstract class ItemRoomDatabase extends RoomDatabase {
             synchronized (ItemRoomDatabase.class) {
                 if (INSTANCE == null) {
                     // Create database here.
+                    Log.d(LOG_TAG, "Database instance creation");
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             ItemRoomDatabase.class, "item_database")
                             .fallbackToDestructiveMigration()
@@ -69,10 +73,12 @@ public abstract class ItemRoomDatabase extends RoomDatabase {
             // If we have no items, then create the initial list of items.
             if (mDao.getAnyItem().length < 1) {
                 for (int i = 0; i <= items.length - 1; i++) {
+                    Log.d(LOG_TAG, "No items into the DB, populate it");
                     Item item = new Item(items[i]);
                     mDao.insert(item);
                 }
             }
+            Log.d(LOG_TAG, "Items existing in the DB, no need to populate");
             return null;
         }
     }

@@ -27,6 +27,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -48,10 +49,11 @@ import java.util.List;
  */
 public class MainActivity extends AppCompatActivity {
 
+    private static final String LOG_TAG = MainActivity.class.getSimpleName();
+
     public static final int NEW_ITEM_ACTIVITY_REQUEST_CODE = 1;
     public static final int UPDATE_ITEM_ACTIVITY_REQUEST_CODE = 2;
 
-    public static final String EXTRA_DATA_UPDATE_WORD = "extra_word_to_be_updated";
     public static final String EXTRA_DATA_UPDATE_ITEM= "extra_item_to_be_updated";
     public static final String EXTRA_DATA_ID = "extra_data_id";
 
@@ -61,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.d(LOG_TAG, "OnCreate");
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -79,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(@Nullable final List<Item> items) {
                 // Update the cached copy of the items in the adapter.
+                Log.d(LOG_TAG, "Getting all items");
                 adapter.setItems(items);
             }
         });
@@ -88,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d(LOG_TAG, "Click on the fab");
                 Intent intent = new Intent(MainActivity.this, NewItemActivity.class);
                 startActivityForResult(intent, NEW_ITEM_ACTIVITY_REQUEST_CODE);
             }
@@ -112,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
                         int position = viewHolder.getAdapterPosition();
                         Item myItem = adapter.getItemAtPosition(position);
+                        Log.d(LOG_TAG, "Swipe delete of item " + myItem.getItem());
                         Toast.makeText(MainActivity.this,
                                 getString(R.string.delete_item_preamble) + " " +
                                 myItem.getItem(), Toast.LENGTH_LONG).show();
@@ -128,6 +134,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(View v, int position) {
                 Item item = adapter.getItemAtPosition(position);
+                Log.d(LOG_TAG, "Click on item " + item.getItem() + " for update");
                 launchUpdateItemActivity(item);
             }
         });
@@ -197,7 +204,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void launchUpdateItemActivity( Item item) {
         Intent intent = new Intent(this, NewItemActivity.class);
-        intent.putExtra(EXTRA_DATA_UPDATE_ITEM, item.getId());
+        intent.putExtra(EXTRA_DATA_UPDATE_ITEM, item.getItem());
         intent.putExtra(EXTRA_DATA_ID, item.getId());
         startActivityForResult(intent, UPDATE_ITEM_ACTIVITY_REQUEST_CODE);
     }
