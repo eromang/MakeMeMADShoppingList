@@ -157,13 +157,21 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        // To clear data
         if (id == R.id.clear_data) {
+            Log.d(LOG_TAG, "Click on clear data");
             // Add a toast just for confirmation
             Toast.makeText(this, R.string.clear_data_toast_text, Toast.LENGTH_LONG).show();
 
             // Delete the existing data.
             mItemViewModel.deleteAll();
+            return true;
+        }
+        // To display about
+        if(id == R.id.action_view_about) {
+            Log.d(LOG_TAG, "Click on about");
+            Intent intent = new Intent(this, AboutActivity.class);
+            startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);

@@ -5,14 +5,18 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.android.example.roomwordssample.R;
 
 import static lu.uni.mad.madproject.MainActivity.EXTRA_DATA_ID;
 import static lu.uni.mad.madproject.MainActivity.EXTRA_DATA_UPDATE_ITEM;
 import static lu.uni.mad.madproject.MainActivity.EXTRA_DATA_UPDATE_ITEM_DESC;
+//import static lu.uni.mad.madproject.MainActivity.EXTRA_DATA_UPDATE_ITEM_QTY;
 
 /**
  * This class displays a screen where the user enters a new item.
@@ -25,10 +29,12 @@ public class NewItemActivity extends AppCompatActivity {
 
     public static final String EXTRA_REPLY = "lu.uni.mad.madproject.REPLY";
     public static final String EXTRA_REPLY_DESC = "lu.uni.mad.madproject.REPLY_DESC";
+    //public static final String EXTRA_REPLY_QTY = "lu.uni.mad.madproject.REPLY_QTY";
     public static final String EXTRA_REPLY_ID = "lu.uni.mad.madproject.REPLY_ID";
 
     private EditText mEditItemView;
     private EditText mEditItemDescView;
+    //private Spinner spinner;
 
     /**
      * Creation of the NewItemActivity used in two cases
@@ -42,6 +48,16 @@ public class NewItemActivity extends AppCompatActivity {
 
         mEditItemView = findViewById(R.id.edit_item);
         mEditItemDescView = findViewById(R.id.edit_description);
+
+        /*
+        // The quantity spinner
+        spinner = findViewById(R.id.quantity_spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.quantity_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+         */
+
         int id = -1 ;
 
         final Bundle extras = getIntent().getExtras();
@@ -50,6 +66,8 @@ public class NewItemActivity extends AppCompatActivity {
         if (extras != null) {
             String item = extras.getString(EXTRA_DATA_UPDATE_ITEM, "");
             String description = extras.getString(EXTRA_DATA_UPDATE_ITEM_DESC, "");
+            //String quantity = extras.getString(EXTRA_DATA_UPDATE_ITEM_QTY, "");
+
             if (!item.isEmpty()) {
                 mEditItemView.setText(item);
                 mEditItemView.setSelection(item.length());
@@ -58,6 +76,9 @@ public class NewItemActivity extends AppCompatActivity {
                 mEditItemDescView.setText(description);
                 mEditItemDescView.setSelection(description.length());
                 mEditItemDescView.requestFocus();
+
+                //spinner.setSelection(arrayAdapter.getPosition("Category 2"));
+
             }
         } // Otherwise, start with empty fields.
 

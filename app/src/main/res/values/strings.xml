@@ -27,6 +27,24 @@ limitations under the License. -->
     <string name="item_description">Item description</string>
     <string name="add_an_item_description">Add an item description</string>
     <string name="item_quantity">Item quantity</string>
-
-
+    <string name="action_contact">Contact</string>
+    <string name="about">About</string>
+    <string name="about_title">&lt;h1&gt;About&lt;/h1&gt;</string>
+    <string name="about_version">&lt;h3&gt;Version&lt;/h3&gt; You are using version &lt;tt&gt;v%1$s&lt;/tt&gt;</string>
+    <string name="about_github">&lt;h3&gt;Source code&lt;/h3&gt; Project hosted on &lt;a href="https://github.com/eromang/MakeMeMADShoppingList"&gt;Github&lt;/a&gt;</string>
+    <string name="about_license">&lt;h3&gt;License&lt;/h3&gt; Make Me MAD Shopping List is licensed under Penguin license</string>
+    <string name="about_author">&lt;h3&gt;Author&lt;/h3&gt; Eric ROMANG</string>
+    <string name="about_contributors">&lt;h3&gt;Contributors&lt;/h3&gt; None they are too lazy</string>
+    <string name="share">Share</string>
+    <string-array name="quantity_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
 </resources>

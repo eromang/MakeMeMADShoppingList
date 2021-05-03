@@ -21,4 +21,7 @@ limitations under the License. -->
         android:orderInCategory="100"
         android:title="@string/clear_all_data"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_view_about"
+        android:title="@string/about" />
 </menu>

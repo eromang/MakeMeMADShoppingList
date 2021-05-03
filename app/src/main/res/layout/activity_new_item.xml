@@ -73,6 +73,11 @@ limitations under the License. -->
         android:paddingTop="10dp"
         android:textStyle="bold|italic" />
 
+    <Spinner
+        android:id="@+id/quantity_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <Button
         android:id="@+id/button_save"
         style="@style/button_style"

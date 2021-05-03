@@ -61,8 +61,8 @@ public abstract class ItemRoomDatabase extends RoomDatabase {
         private final ItemDao mDao;
 
         // Initial data set
-        private static String [] items = {"dolphin", "crocodile", "cobra", "elephant", "goldfish",
-                "tiger", "snake"};
+        private static String [] items = {"apple", "beer", "wine", "washing-up liquid", "soap",
+                "bread", "cheese", "garbage bag", "rice", "pasta"};
 
         PopulateDbAsync(ItemRoomDatabase db) {
             mDao = db.ItemDao();
