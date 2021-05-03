@@ -36,6 +36,7 @@ limitations under the License. -->
     <string name="about_author">&lt;h3&gt;Author&lt;/h3&gt; Eric ROMANG</string>
     <string name="about_contributors">&lt;h3&gt;Contributors&lt;/h3&gt; None they are too lazy</string>
     <string name="share">Share</string>
+    <string name="quantity_prompt">Select a quantity</string>
     <string-array name="quantity_array">
         <item>1</item>
         <item>2</item>

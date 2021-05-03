@@ -15,7 +15,7 @@ import android.util.Log;
  * with it happen through the ItemViewModel.
  */
 
-@Database(entities = {Item.class}, version = 2, exportSchema = false)
+@Database(entities = {Item.class}, version = 3, exportSchema = false)
 public abstract class ItemRoomDatabase extends RoomDatabase {
 
     private static final String LOG_TAG = ItemRoomDatabase.class.getSimpleName();
@@ -62,7 +62,7 @@ public abstract class ItemRoomDatabase extends RoomDatabase {
 
         // Initial data set
         private static String [] items = {"apple", "beer", "wine", "washing-up liquid", "soap",
-                "bread", "cheese", "garbage bag", "rice", "pasta"};
+                "bread", "cheese", "garbage bag", "rice"};
 
         PopulateDbAsync(ItemRoomDatabase db) {
             mDao = db.ItemDao();
@@ -73,8 +73,9 @@ public abstract class ItemRoomDatabase extends RoomDatabase {
             // If we have no items, then create the initial list of items.
             if (mDao.getAnyItem().length < 1) {
                 for (int i = 0; i <= items.length - 1; i++) {
+                    int j = i + 1;
                     Log.d(LOG_TAG, "No items into the DB, populate it");
-                    Item item = new Item(items[i], "test " + items[i]);
+                    Item item = new Item(items[i], "test " + items[i], String.valueOf(j));
                     mDao.insert(item);
                 }
             }
