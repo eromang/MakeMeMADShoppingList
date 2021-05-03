@@ -35,7 +35,8 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemVi
     public void onBindViewHolder(ItemViewHolder holder, int position) {
         if (mItems != null) {
             Item current = mItems.get(position);
-            holder.itemItemView.setText(current.getItem());
+            String item = "Qty : " + current.getQuantity() + " of " + current.getItem();
+            holder.itemItemView.setText(item);
         } else {
             // Covers the case of data not being ready yet.
             holder.itemItemView.setText(R.string.no_item);

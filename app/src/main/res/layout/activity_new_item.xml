@@ -1,19 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- Copyright 2018 Google Inc.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License. -->
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -58,8 +44,8 @@ limitations under the License. -->
         style="@style/text_view_style"
         android:hint="@string/add_an_item_description"
         android:inputType="textMultiLine"
-        android:lines="8"
-        android:minLines="6"
+        android:lines="6"
+        android:minLines="4"
         android:gravity="top|left"
         android:maxLines="10"
         android:scrollbars="vertical"
@@ -75,6 +61,7 @@ limitations under the License. -->
 
     <Spinner
         android:id="@+id/quantity_spinner"
+        style="@style/text_view_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:prompt="@string/quantity_prompt"
