@@ -10,9 +10,12 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 
 /**
- * ItemRoomDatabase. Includes code to create the database.
- * After the app creates the database, all further interactions
- * with it happen through the ItemViewModel.
+ * @description: Includes code to create the database.
+ *  Also prepopulate the database with predefined items names, descriptions and quantities
+ * @author Eric ROMANG
+ * @professor Dr. Jean Botev
+ * @subject UNI S6 MAD - Project
+ *
  */
 
 @Database(entities = {Item.class}, version = 3, exportSchema = false)

@@ -19,11 +19,11 @@ import static lu.uni.mad.madproject.MainActivity.EXTRA_DATA_UPDATE_ITEM_DESC;
 import static lu.uni.mad.madproject.MainActivity.EXTRA_DATA_UPDATE_ITEM_QTY;
 
 /**
- * This class displays a screen where the user enters a new item with
- * a description and a desired quantity
- * The NewItemActivity returns the entered item to the calling activity
- * (MainActivity), which then stores the new item, the description and the quantity
- * and updates the list of displayed items.
+ * @description: To add a new item or to update it
+ * @author Eric ROMANG
+ * @professor Dr. Jean Botev
+ * @subject UNI S6 MAD - Project
+ *
  */
 
 public class NewItemActivity extends AppCompatActivity {
@@ -37,11 +37,6 @@ public class NewItemActivity extends AppCompatActivity {
     private EditText mEditItemDescView;
     private Spinner spinner;
 
-    /**
-     * Creation of the NewItemActivity used in two cases
-     * First case, to create an item
-     * Second case, to update an item
-     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +46,6 @@ public class NewItemActivity extends AppCompatActivity {
         mEditItemView = findViewById(R.id.edit_item);
         mEditItemDescView = findViewById(R.id.edit_description);
 
-        // The quantity spinner
         spinner = findViewById(R.id.quantity_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.quantity_array, android.R.layout.simple_spinner_item);
@@ -97,7 +91,7 @@ public class NewItemActivity extends AppCompatActivity {
                 // Create a new Intent for the reply.
                 Intent replyIntent = new Intent();
                 if (TextUtils.isEmpty(mEditItemView.getText())) {
-                    // No item was entered, set the result as canceled
+                    // No item was entered
                     setResult(RESULT_CANCELED, replyIntent);
                 } else {
                     // Get the new item, description and quantity that the user entered.

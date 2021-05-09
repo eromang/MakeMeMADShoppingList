@@ -7,8 +7,11 @@ import android.arch.lifecycle.LiveData;
 import java.util.List;
 
 /**
- * The ItemViewModel provides the interface between the UI and the data layer of the app,
- * represented by the Repository
+ * @description: Provides the interface between the UI and the data layer of the app represented by ItemRepository
+ * @author Eric ROMANG
+ * @professor Dr. Jean Botev
+ * @subject UNI S6 MAD - Project
+ *
  */
 
 public class ItemViewModel extends AndroidViewModel {

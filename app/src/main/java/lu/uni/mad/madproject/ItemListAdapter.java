@@ -12,7 +12,11 @@ import com.android.example.roomwordssample.R;
 import java.util.List;
 
 /**
- * Adapter for the RecyclerView that displays a list of items.
+ * @description: Adapter for the RecyclerView that displays a list of items.
+ * @author Eric ROMANG
+ * @professor Dr. Jean Botev
+ * @subject UNI S6 MAD - Project
+ *
  */
 
 public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemViewHolder> {
@@ -52,8 +56,8 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemVi
     }
 
     /**
-     * getItemCount() is called many times, and when it is first called,
-     * mItems has not been updated (means initially, it's null, and we can't return null).
+     * getItemCount() is called many times
+     * Initially, it's null, and we can't return null).
      */
     @Override
     public int getItemCount() {
@@ -64,11 +68,6 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemVi
 
     /**
      * Gets the item at a given position.
-     * This method is useful for identifying which item
-     * was clicked or swiped in methods that handle user events.
-     *
-     * @param position The position of the item in the RecyclerView
-     * @return The item at the given position
      */
     public Item getItemAtPosition(int position) {
         return mItems.get(position);

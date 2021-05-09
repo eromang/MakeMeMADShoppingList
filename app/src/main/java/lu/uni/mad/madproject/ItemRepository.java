@@ -7,16 +7,11 @@ import android.os.AsyncTask;
 import java.util.List;
 
 /**
- * This class holds the implementation code for the methods that interact with the database.
- * Using a repository allows us to group the implementation methods together,
- * and allows the ItemViewModel to be a clean interface between the rest of the app
- * and the database.
+ * @description: Holds the implementation code for the methods that interact with the database
+ * @author Eric ROMANG
+ * @professor Dr. Jean Botev
+ * @subject UNI S6 MAD - Project
  *
- * For insert, update and delete, and longer-running queries,
- * you must run the database interaction methods in the background.
- *
- * Typically, all you need to do to implement a database method
- * is to call it on the data access object (DAO), in the background if applicable.
  */
 
 public class ItemRepository {

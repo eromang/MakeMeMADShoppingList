@@ -13,9 +13,11 @@ import java.util.List;
 import lu.uni.mad.madproject.Item;
 
 /**
- * Data Access Object (DAO) for an item.
- * Each method performs a database operation, such as inserting or deleting an item,
- * running a DB query, or deleting all items.
+ * @description: Data Access Object (DAO) for an item
+ * @author Eric ROMANG
+ * @professor Dr. Jean Botev
+ * @subject UNI S6 MAD - Project
+ *
  */
 
 @Dao

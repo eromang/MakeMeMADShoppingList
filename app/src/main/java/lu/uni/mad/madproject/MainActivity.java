@@ -38,15 +38,13 @@ import com.android.example.roomwordssample.R;
 import java.util.List;
 
 /**
- * This class displays a list of items in a RecyclerView.
- * The items are saved in a Room database.
- * The layout for this activity also displays a FAB that
- * allows users to start the NewItemActivity to add new items.
- * Users can delete a item by swiping it away, or delete all items
- * through the Options menu.
- * Whenever a new item is added, deleted, or updated, the RecyclerView
- * showing the list of items automatically updates.
+ * @description: Main class to start the application
+ * @author Eric ROMANG
+ * @professor Dr. Jean Botev
+ * @subject UNI S6 MAD - Project
+ *
  */
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
@@ -106,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
                 new ItemTouchHelper.SimpleCallback(0,
                         ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
                     @Override
-                    // We are not implementing onMove() in this app.
+                    // onMove() not implemented
                     public boolean onMove(RecyclerView recyclerView,
                                           RecyclerView.ViewHolder viewHolder,
                                           RecyclerView.ViewHolder target) {
@@ -114,8 +112,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    // When the use swipes an item,
-                    // delete that item from the database.
+                    // onSwiped() implementation
                     public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
                         int position = viewHolder.getAdapterPosition();
                         Item myItem = adapter.getItemAtPosition(position);
@@ -144,18 +141,17 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // Inflate the menu
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
-    // The options menu has a single item "Clear all data now"
+    // The options menu has a "Clear all data now"
     // that deletes all the entries in the database.
+    // The options menu has also an about display
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, as long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
         // To clear data
@@ -168,6 +164,7 @@ public class MainActivity extends AppCompatActivity {
             mItemViewModel.deleteAll();
             return true;
         }
+
         // To display about
         if(id == R.id.action_view_about) {
             Log.d(LOG_TAG, "Click on about");
@@ -182,11 +179,6 @@ public class MainActivity extends AppCompatActivity {
      * When the user enters a new item in the NewItemActivity,
      * that activity returns the result to this activity.
      * If the user entered a new item, save it in the database.
-
-     * @param requestCode ID for the request
-     * @param resultCode indicates success or failure
-     * @param data The Intent sent back from the NewItemActivity,
-     *             which includes the item that the user entered
      */
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
